@@ -1,10 +1,11 @@
 :root {
   --primary: #252525;
   --secondary: rgb(230, 230, 2);
-  --accent: #3f3f3f;
+  --accent: #333333;
 }
 
 body {
+  background-color: var(--primary);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -37,6 +38,7 @@ body {
 }
 
 .title-container > * {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   z-index: 2;
 }
 
@@ -50,8 +52,8 @@ body {
 
 .taxi-graphic-1 {
   height: 70px;
-  width: 240px;
-  background-image: linear-gradient(to right, var(--primary), yellow);
+  width: 65%;
+  background-image: linear-gradient(to right, var(--primary), var(--secondary));
   position: absolute;
   right: 0;
   z-index: 1;
@@ -59,7 +61,7 @@ body {
 
 .taxi-graphic-2 {
   height: 70px;
-  width: 240px;
+  width: 65%;
   position: absolute;
   right: 0;
   background-image: linear-gradient(45deg, var(--primary) 25%, transparent 25%),
@@ -90,14 +92,14 @@ body {
 }
 
 .subject-link {
-  background-color: var(--primary);
+  background-color: var(--accent);
   color: white;
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 20%;
-  border-right: 1px solid var(--accent);
+  border-right: 1px solid var(--primary);
 }
 
 .subject-link:last-child {
@@ -105,7 +107,7 @@ body {
 }
 
 .subject-link:hover {
-  background-color: var(--secondary);
+  opacity: 0.8;
 }
 
 /* .nav ul li {
