@@ -7,6 +7,7 @@ import {
   Movies,
   Sports,
 } from "./components/Categories";
+
 // import styles from "./App.css";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     <div className="App">
       <div className="header">
         <div className="title-header">
-          <Link to="/Home" style={{textDecoration: "none"}}>
+          <Link to="/Home" className="link">
             <div className="title-container">
               <span className="title-start">T</span><span className="title-end">RIVIA</span> <span className="title-start">T</span><span className="title-end">AXI</span>
             </div>
@@ -27,21 +28,21 @@ function App() {
         <div className="nav">
           <div className="nav-container">
             <ul>
-              <li>
-                <Link to="/Science">Science</Link>
-              </li>
-              <li>
-                <Link to="/Math">Math</Link>
-              </li>
-              <li>
-                <Link to="/History">History</Link>
-              </li>
-              <li>
-                <Link to="/Movies">Movies</Link>
-              </li>
-              <li>
-                <Link to="/Sports">Sports</Link>
-              </li>
+                <Link to="/Science" className="subject-link link">
+                  <li>Science </li>
+                </Link>
+                <Link to="/Math" className="subject-link link">
+                  <li>Math</li>
+                </Link>
+                <Link to="/History" className="subject-link link">
+                 <li>History</li>
+                </Link>
+                <Link to="/Movies" className="subject-link link">
+                  <li>Movies</li>
+                </Link>
+                <Link to="/Sports" className="subject-link link">
+                  <li>Sports</li>
+                </Link>
             </ul>
           </div>
         </div>

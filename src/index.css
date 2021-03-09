@@ -1,10 +1,13 @@
 :root {
   --primary: #252525;
   --secondary: rgb(230, 230, 2);
+  --accent: #3f3f3f;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -67,3 +70,49 @@ body {
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   z-index: 1;
 }
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-container {
+  width: 100%;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  height: 45px;
+}
+
+.subject-link {
+  background-color: var(--primary);
+  color: white;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  border-right: 1px solid var(--accent);
+}
+
+.subject-link:last-child {
+  border: none;
+}
+
+.subject-link:hover {
+  background-color: var(--secondary);
+}
+
+/* .nav ul li {
+  background-color: red;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+} */
