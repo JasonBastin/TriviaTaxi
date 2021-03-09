@@ -5,7 +5,7 @@
        answered correctly
     2) Green, yellow, and red lights as lives. They all start out lit
        and lose their light as lives are lost.
-    
+    3) Add a yellow checkered effect to the title header with gradient fading  
 
 - Do I want to keep the different subjects or should it be as close to the original 
   show in its anything-goes questions?

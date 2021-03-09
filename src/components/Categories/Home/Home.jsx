@@ -12,7 +12,7 @@ const Home = () => {
         You in?
         <span
           style={{
-            display: "inline-block",
+            display: "block",
             marginTop: "30px",
             fontSize: "20px",
           }}

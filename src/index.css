@@ -1,13 +1,69 @@
+:root {
+  --primary: #252525;
+  --secondary: rgb(230, 230, 2);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.link {
+  text-decoration: none;
+}
+
+.title-header {
+  height: 70px;
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container {
+  color: var(--secondary);
+  font-size: 45px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.title-container > * {
+  z-index: 2;
+}
+
+.title-end {
+  font-size: 35px;
+  font-weight: 600;
+  margin-right: 5px;
+  margin-left: -3px;
+  line-height: 1.3;
+}
+
+.taxi-graphic-1 {
+  height: 70px;
+  width: 240px;
+  background-image: linear-gradient(to right, var(--primary), yellow);
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.taxi-graphic-2 {
+  height: 70px;
+  width: 240px;
+  position: absolute;
+  right: 0;
+  background-image: linear-gradient(45deg, var(--primary) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--primary) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--primary) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--primary) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  z-index: 1;
 }
