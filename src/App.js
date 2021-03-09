@@ -7,8 +7,8 @@ import {
   Movies,
   Sports,
 } from "./components/Categories";
+import Scoreboard from "./components/Scoreboard/Scoreboard";
 
-// import styles from "./App.css";
 
 function App() {
   return (
@@ -48,6 +48,8 @@ function App() {
         </div>
       </div>
       <div className="main">
+        <Scoreboard />
+        
         <Switch>
           <Route path="/Home">
             <Home />
