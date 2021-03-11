@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// Science API
 export const fetchEasyQuestions = async () => {
   try {
     const apiURL =
