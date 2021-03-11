@@ -1,61 +1,53 @@
 import axios from "axios";
 
 // Science API
-export const fetchScienceTrivia = async () => {
+export const fetchEasyQuestions = async () => {
   try {
     const apiURL =
-      "https://opentdb.com/api.php?amount=11&category=17&type=multiple";
-    const { data } = await axios.get(apiURL);
-    return data;
+      "https://opentdb.com/api.php?amount=4&difficulty=easy&type=multiple";
+    const { data: easyQuestions } = await axios.get(apiURL);
+    console.log("easy:", easyQuestions);
+    return easyQuestions;
   } catch (error) {
     console.log(error);
   }
 };
+fetchEasyQuestions();
 
-// Math API
-export const fetchMathTrivia = async () => {
+export const fetchMediumQuestions = async () => {
   try {
     const apiURL =
-      "https://opentdb.com/api.php?amount=11&category=19&type=multiple";
-    const { data } = await axios.get(apiURL);
-    return data;
+      "https://opentdb.com/api.php?amount=4&difficulty=medium&type=multiple";
+    const { data: mediumQuestions } = await axios.get(apiURL);
+    console.log("medium: ", mediumQuestions);
+    return mediumQuestions;
   } catch (error) {
     console.log(error);
   }
 };
+fetchMediumQuestions();
 
-// History API
-export const fetchHistoryTrivia = async () => {
+export const fetchHardQuestions = async () => {
   try {
     const apiURL =
-      "https://opentdb.com/api.php?amount=11&category=23&type=multiple";
-    const { data } = await axios.get(apiURL);
-    return data;
+      "https://opentdb.com/api.php?amount=2&difficulty=hard&type=multiple";
+    const { data: hardQuestions } = await axios.get(apiURL);
+    console.log("hard: ", hardQuestions);
+    return hardQuestions;
   } catch (error) {
     console.log(error);
   }
 };
+fetchHardQuestions();
 
-// Movies API
-export const fetchMoviesTrivia = async () => {
+export const fetchDoubleOrNothingQuestion = async () => {
   try {
-    const apiURL =
-      "https://opentdb.com/api.php?amount=11&category=11&type=multiple";
-    const { data } = await axios.get(apiURL);
-    return data;
+    const apiURL = "https://opentdb.com/api.php?amount=1&type=multiple";
+    const { data: doubleOrNothingQuestion } = await axios.get(apiURL);
+    console.log("DblOrNot: ", doubleOrNothingQuestion);
+    return doubleOrNothingQuestion;
   } catch (error) {
     console.log(error);
   }
 };
-
-// Sports API
-export const fetchSportsTrivia = async () => {
-  try {
-    const apiURL =
-      "https://opentdb.com/api.php?amount=11&category=21&type=multiple";
-    const { data } = await axios.get(apiURL);
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
+fetchDoubleOrNothingQuestion();
