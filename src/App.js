@@ -1,7 +1,6 @@
 import { Link, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import TriviaTaxi from "./components/NewGame/NewGame"
-import Scoreboard from "./components/Scoreboard/Scoreboard";
 
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
         
       </div>
       <div className="main">
-        <Scoreboard />
         <Switch>
           <Route exact path="/Home" component={Home}>
           </Route>
