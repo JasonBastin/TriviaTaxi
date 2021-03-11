@@ -9,7 +9,7 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 import Question from "../Question/Question";
 
 const NewGame = () => {
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState({});
 
   useEffect(() => {
     const getTrivia = async () => {
