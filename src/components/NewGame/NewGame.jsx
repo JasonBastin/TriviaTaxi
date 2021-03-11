@@ -10,7 +10,6 @@ import Question from "../Question/Question";
 
 const NewGame = () => {
   const [questions, setQuestions] = useState([]);
-  const [question, setQuestion] = useState({});
 
   useEffect(() => {
     const getTrivia = async () => {
@@ -36,7 +35,7 @@ const NewGame = () => {
       <Scoreboard />
       <h1>New Game</h1>
       <div className="current-question">
-        <Question />
+        <Question questions={questions} />
       </div>
     </div>
   );

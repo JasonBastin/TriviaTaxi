@@ -6,8 +6,13 @@
     2) Green, yellow, and red lights as lives. They all start out lit
        and lose their light as lives are lost.
 
+- Create 4 stages of game:
+   * Conditionally render stages based on question #
+   1) easy: $25
+   2) medium: $50
+   3) hard: $100
+   4) double-or-nothing
 
-
-- Set incoming question objects to objects with properties:
+- Set incoming question objects for each stage of game to objects with properties:
    > question, options, correct_answer, money_amount, isDoubleOrNothing
   
