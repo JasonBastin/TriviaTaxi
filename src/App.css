@@ -44,6 +44,10 @@ body {
   padding: 4px 14px;
 }
 
+.title-container:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
 .title-container > * {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   z-index: 2;
