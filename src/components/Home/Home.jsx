@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <div>
@@ -19,6 +21,9 @@ const Home = () => {
         >
           <i>CUE B ROLL AND SOFT ROCK INTRO...</i>
         </span>
+        <Link to="/NewGame">
+          <button>GET IN</button>
+        </Link>
       </div>
     </div>
   );
