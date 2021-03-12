@@ -10,6 +10,7 @@ import Question from "../Question/Question";
 
 const NewGame = () => {
   const [newGameLineUp, setNewGameLineUp] = useState([]);
+  const [questionNumber, setQuestionNumber] = useState(1);
 
   useEffect(() => {
     const getTrivia = async () => {
@@ -23,22 +24,33 @@ const NewGame = () => {
         hardTriviaObj,
         dblOrNothingTriviaObj,
       };
-      console.log(triviaObjects);
+
+      let lineUp = [];
       for (const props in triviaObjects) {
-        console.log(triviaObjects[props].results);
+        triviaObjects[props].results.forEach((result) => {
+          lineUp.push(result);
+        });
       }
+
+      setNewGameLineUp(lineUp);
     };
     getTrivia();
   }, []);
 
-  // const setUpQuestions = () => {};
+  const questionCounter = () => {
+    setQuestionNumber((prevNum) => prevNum + 1);
+  };
 
   return (
     <div className="newGame">
       <Scoreboard />
       <h1>New Game</h1>
       <div className="current-question">
-        <Question />
+        <Question
+          questionNumber={questionNumber}
+          questionCounter={questionCounter}
+          newGameLineUp={newGameLineUp}
+        />
       </div>
     </div>
   );
