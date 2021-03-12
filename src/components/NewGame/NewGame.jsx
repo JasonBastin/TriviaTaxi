@@ -9,8 +9,9 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 import Question from "../Question/Question";
 
 const NewGame = () => {
-  const [newGameLineUp, setNewGameLineUp] = useState([]);
+  const [questionObjList, setQuestionObjList] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(0);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     const getTrivia = async () => {
@@ -18,21 +19,44 @@ const NewGame = () => {
       const mediumTriviaObj = await fetchMediumQuestions();
       const hardTriviaObj = await fetchHardQuestions();
       const dblOrNothingTriviaObj = await fetchDoubleOrNothingQuestion();
-      const triviaObjects = {
+
+      const triviaData = {
         easyTriviaObj,
         mediumTriviaObj,
         hardTriviaObj,
         dblOrNothingTriviaObj,
       };
 
-      let lineUp = [];
-      for (const props in triviaObjects) {
-        triviaObjects[props].results.forEach((result) => {
-          lineUp.push(result);
+      let questionObjList = [];
+      for (const props in triviaData) {
+        triviaData[props].forEach((obj) => {
+          questionObjList.push(obj);
         });
       }
 
-      setNewGameLineUp(lineUp);
+      const questionObjListWithWorth = questionObjList.map(
+        (questionObject, i) => {
+          const questionWorth = [
+            25,
+            25,
+            25,
+            25,
+            50,
+            50,
+            50,
+            50,
+            100,
+            100,
+            score * 2,
+          ];
+          return (questionObject = {
+            ...questionObject,
+            question_worth: questionWorth[i],
+          });
+        }
+      );
+      console.log(questionObjListWithWorth);
+      setQuestionObjList(questionObjListWithWorth);
     };
     getTrivia();
   }, []);
@@ -49,7 +73,7 @@ const NewGame = () => {
         <Question
           questionNumber={questionNumber}
           questionCounter={questionCounter}
-          newGameLineUp={newGameLineUp}
+          questionObjList={questionObjList}
         />
       </div>
     </div>
