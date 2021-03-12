@@ -9,7 +9,7 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 import Question from "../Question/Question";
 
 const NewGame = () => {
-  const [questionObjList, setQuestionObjList] = useState([]);
+  const [triviaList, setTriviaList] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [score, setScore] = useState(0);
 
@@ -27,36 +27,23 @@ const NewGame = () => {
         dblOrNothingTriviaObj,
       };
 
-      let questionObjList = [];
+      let newTriviaList = [];
       for (const props in triviaData) {
         triviaData[props].forEach((obj) => {
-          questionObjList.push(obj);
+          newTriviaList.push(obj);
         });
       }
 
-      const questionObjListWithWorth = questionObjList.map(
+      const triviaListWithQuestionWorth = triviaList.map(
         (questionObject, i) => {
-          const questionWorth = [
-            25,
-            25,
-            25,
-            25,
-            50,
-            50,
-            50,
-            50,
-            100,
-            100,
-            score * 2,
-          ];
+          const questionWorth = [25, 25, 25, 25, 50, 50, 50, 50, 100, 100, 0];
           return (questionObject = {
             ...questionObject,
             question_worth: questionWorth[i],
           });
         }
       );
-      console.log(questionObjListWithWorth);
-      setQuestionObjList(questionObjListWithWorth);
+      setTriviaList(triviaListWithQuestionWorth);
     };
     getTrivia();
   }, []);
@@ -73,7 +60,7 @@ const NewGame = () => {
         <Question
           questionNumber={questionNumber}
           questionCounter={questionCounter}
-          questionObjList={questionObjList}
+          triviaList={triviaList}
         />
       </div>
     </div>
