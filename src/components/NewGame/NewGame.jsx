@@ -10,7 +10,7 @@ import Question from "../Question/Question";
 
 const NewGame = () => {
   const [newGameLineUp, setNewGameLineUp] = useState([]);
-  const [questionNumber, setQuestionNumber] = useState(1);
+  const [questionNumber, setQuestionNumber] = useState(0);
 
   useEffect(() => {
     const getTrivia = async () => {
