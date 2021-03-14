@@ -9,9 +9,7 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 import Question from "../Question/Question";
 
 const NewGame = () => {
-  const [triviaList, setTriviaList] = useState([]);
-  const [questionNumber, setQuestionNumber] = useState(0);
-  const [score, setScore] = useState(0);
+  const [triviaList, setTriviaList] = useState({});
 
   useEffect(() => {
     const getTrivia = async () => {
@@ -34,7 +32,7 @@ const NewGame = () => {
         });
       }
 
-      const triviaListWithQuestionWorth = triviaList.map(
+      const triviaListWithQuestionWorth = newTriviaList.map(
         (questionObject, i) => {
           const questionWorth = [25, 25, 25, 25, 50, 50, 50, 50, 100, 100, 0];
           return (questionObject = {
@@ -43,25 +41,19 @@ const NewGame = () => {
           });
         }
       );
-      setTriviaList(triviaListWithQuestionWorth);
+      setTriviaList(() => triviaListWithQuestionWorth);
     };
     getTrivia();
   }, []);
 
-  const questionCounter = () => {
-    setQuestionNumber((prevNum) => prevNum + 1);
-  };
+  if (!triviaList[0]) return null;
 
   return (
     <div className="newGame">
       <Scoreboard />
       <h1>New Game</h1>
       <div className="current-question">
-        <Question
-          questionNumber={questionNumber}
-          questionCounter={questionCounter}
-          triviaList={triviaList}
-        />
+        <Question triviaList={triviaList} />
       </div>
     </div>
   );
