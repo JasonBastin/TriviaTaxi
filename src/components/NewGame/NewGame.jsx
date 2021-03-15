@@ -6,7 +6,7 @@ import {
 } from "../../api/fetchTrivia";
 import { useState, useEffect } from "react";
 import Scoreboard from "../Scoreboard/Scoreboard";
-import Question from "../Question/Question";
+import Question from "../QuestionCard/QuestionCard";
 
 const NewGame = () => {
   const [triviaList, setTriviaList] = useState({});
