@@ -1,4 +1,5 @@
 import "./index.css";
+import Options from "../Options/Options";
 import { useState, useEffect } from "react";
 
 const Question = ({ triviaList }) => {
@@ -19,7 +20,9 @@ const Question = ({ triviaList }) => {
       <div className="question-card">
         <div className="value">{trivia.question_value}</div>
         <div className="question">{trivia.question}</div>
-        <div className="options">{trivia.options}</div>
+      </div>
+      <div className="options-container">
+        <Options options={trivia.options} />
       </div>
       ;<button onClick={nextQuestion}>Next Question</button>
     </div>
