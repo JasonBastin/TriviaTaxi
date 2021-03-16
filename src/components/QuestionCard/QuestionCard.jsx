@@ -22,7 +22,7 @@ const Question = ({ triviaList }) => {
         <div className="question">{trivia.question}</div>
       </div>
       <div className="options-container">
-        <Options options={trivia.options} />
+        <Options options={trivia.options} answer={trivia.correct_answer} />
       </div>
       ;<button onClick={nextQuestion}>Next Question</button>
     </div>
