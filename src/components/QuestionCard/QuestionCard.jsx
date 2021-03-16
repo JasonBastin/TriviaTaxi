@@ -2,29 +2,19 @@ import "./index.css";
 import Options from "../Options/Options";
 import { useState, useEffect } from "react";
 
-const Question = ({ triviaList }) => {
-  const [questionCount, setQuestionCount] = useState(0);
-  const [score, setScore] = useState(0);
-  const [trivia, setTrivia] = useState({});
-
-  useEffect(() => {
-    setTrivia(triviaList[questionCount]);
-  }, [questionCount]);
-
-  const nextQuestion = () => {
-    setQuestionCount((prevNum) => prevNum + 1);
-  };
-
+const Question = ({ currentQuestion, nextQuestion }) => {
+  const { question, answer, options, question_value } = currentQuestion;
+  console.log(question, answer, options, question_value);
   return (
     <div className="question-container">
       <div className="question-card">
-        <div className="value">{trivia.question_value}</div>
-        <div className="question">{trivia.question}</div>
+        <div className="value">{question_value}</div>
+        <div className="question">{question}</div>
       </div>
       <div className="options-container">
-        <Options options={trivia.options} answer={trivia.correct_answer} />
+        <Options options={options} answer={answer} />
       </div>
-      ;<button onClick={nextQuestion}>Next Question</button>
+      <button onClick={nextQuestion}>Next Question</button>
     </div>
   );
 };

@@ -1,16 +1,19 @@
+import { useState, useEffect } from "react";
 import {
   fetchEasyQuestions,
   fetchMediumQuestions,
   fetchHardQuestions,
   fetchDoubleOrNothingQuestion,
 } from "../../api/fetchTrivia";
-import { useState, useEffect } from "react";
+import { decodeText } from "../../tools/decodeText";
 import Scoreboard from "../Scoreboard/Scoreboard";
 import Question from "../QuestionCard/QuestionCard";
-import { decodeText } from "../../tools/decodeText";
 
 const NewGame = () => {
   const [triviaList, setTriviaList] = useState({});
+  const [score, setScore] = useState(0);
+  const [questionCount, setQuestionCount] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState({});
 
   useEffect(() => {
     const getTrivia = async () => {
@@ -19,22 +22,22 @@ const NewGame = () => {
       const hardTriviaObj = await fetchHardQuestions();
       const dblOrNothingTriviaObj = await fetchDoubleOrNothingQuestion();
 
-      const triviaData = {
+      const completeTrivia = {
         easyTriviaObj,
         mediumTriviaObj,
         hardTriviaObj,
         dblOrNothingTriviaObj,
       };
 
-      let newTriviaList = [];
-      for (const props in triviaData) {
-        triviaData[props].forEach((obj) => {
-          newTriviaList.push(obj);
+      let arrayOfCompleteTrivia = [];
+      for (const props in completeTrivia) {
+        completeTrivia[props].forEach((obj) => {
+          arrayOfCompleteTrivia.push(obj);
         });
       }
 
       setTriviaList(
-        newTriviaList.map((triviaObj, i) => {
+        arrayOfCompleteTrivia.map((triviaObj, i) => {
           const question = decodeText(triviaObj.question);
           const answer = decodeText(triviaObj.correct_answer);
           const options = [
@@ -57,14 +60,25 @@ const NewGame = () => {
     getTrivia();
   }, []);
 
-  if (!triviaList[0]) return null;
+  useEffect(() => {
+    if (!triviaList[0]) return;
+
+    setCurrentQuestion(() => triviaList[questionCount]);
+  }, [triviaList, questionCount]);
+
+  const nextQuestion = () => {
+    setQuestionCount((prevNum) => prevNum + 1);
+  };
 
   return (
     <div className="newGame">
-      <Scoreboard />
+      <Scoreboard score={score} />
       <h1>New Game</h1>
       <div className="current-question">
-        <Question triviaList={triviaList} />
+        <Question
+          nextQuestion={nextQuestion}
+          currentQuestion={currentQuestion}
+        />
       </div>
     </div>
   );
