@@ -70,6 +70,10 @@ const NewGame = () => {
     setQuestionCount((prevNum) => prevNum + 1);
   };
 
+  const handleScore = (e, value) => {
+    setScore((prevScore) => prevScore + value);
+  };
+
   return (
     <div className="newGame">
       <Scoreboard score={score} />
@@ -78,6 +82,7 @@ const NewGame = () => {
         <Question
           nextQuestion={nextQuestion}
           currentQuestion={currentQuestion}
+          handleScore={handleScore}
         />
       </div>
     </div>
