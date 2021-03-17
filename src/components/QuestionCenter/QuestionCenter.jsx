@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import Options from "../Options/Options";
 import "./index.css";
 
-const Question = ({ currentQuestion, nextQuestion, handleScore }) => {
+const QuestionCenter = ({ currentQuestion, nextQuestion, handleScore }) => {
   const { question, answer, options, question_value } = currentQuestion;
-  console.log(question, answer, options, question_value);
 
   return (
     <div className="question-container">
@@ -27,4 +26,4 @@ const Question = ({ currentQuestion, nextQuestion, handleScore }) => {
   );
 };
 
-export default Question;
+export default QuestionCenter;

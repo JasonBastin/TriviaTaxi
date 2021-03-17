@@ -7,14 +7,14 @@ import {
 } from "../../api/fetchTrivia";
 import { decodeText } from "../../tools/decodeText";
 import Scoreboard from "../Scoreboard/Scoreboard";
-import Question from "../QuestionCard/QuestionCard";
+import QuestionCenter from "../QuestionCenter/QuestionCenter";
 
 const NewGame = () => {
   const [triviaList, setTriviaList] = useState({});
   const [score, setScore] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState({});
-  console.log(score);
+
   useEffect(() => {
     const getTrivia = async () => {
       const easyTriviaObj = await fetchEasyQuestions();
@@ -71,16 +71,15 @@ const NewGame = () => {
   };
 
   const handleScore = (value) => {
-    console.log(score);
     setScore((prevScore) => prevScore + value);
   };
 
   return (
     <div className="newGame">
-      <Scoreboard score={score} />
+      <Scoreboard score={score} currentQuestion={currentQuestion} />
       <h1>New Game</h1>
       <div className="current-question">
-        <Question
+        <QuestionCenter
           nextQuestion={nextQuestion}
           currentQuestion={currentQuestion}
           handleScore={handleScore}
