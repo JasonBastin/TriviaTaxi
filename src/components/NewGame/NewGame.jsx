@@ -14,7 +14,7 @@ const NewGame = () => {
   const [score, setScore] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState({});
-
+  console.log(score);
   useEffect(() => {
     const getTrivia = async () => {
       const easyTriviaObj = await fetchEasyQuestions();
@@ -67,10 +67,11 @@ const NewGame = () => {
   }, [triviaList, questionCount]);
 
   const nextQuestion = () => {
-    setQuestionCount((prevNum) => prevNum + 1);
+    setQuestionCount((prevQuestion) => prevQuestion + 1);
   };
 
-  const handleScore = (e, value) => {
+  const handleScore = (value) => {
+    console.log(score);
     setScore((prevScore) => prevScore + value);
   };
 

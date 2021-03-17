@@ -1,10 +1,11 @@
-import "./index.css";
-import Options from "../Options/Options";
 import { useState, useEffect } from "react";
+import Options from "../Options/Options";
+import "./index.css";
 
-const Question = ({ currentQuestion, nextQuestion }) => {
+const Question = ({ currentQuestion, nextQuestion, handleScore }) => {
   const { question, answer, options, question_value } = currentQuestion;
   console.log(question, answer, options, question_value);
+
   return (
     <div className="question-container">
       <div className="question-card">
@@ -14,7 +15,14 @@ const Question = ({ currentQuestion, nextQuestion }) => {
       <div className="options-container">
         <Options options={options} answer={answer} />
       </div>
-      <button onClick={nextQuestion}>Next Question</button>
+      <button
+        onClick={() => {
+          nextQuestion();
+          handleScore(question_value);
+        }}
+      >
+        Next Question
+      </button>
     </div>
   );
 };
