@@ -77,7 +77,6 @@ const NewGame = () => {
   return (
     <div className="newGame">
       <Scoreboard score={score} currentQuestion={currentQuestion} />
-      <h1>New Game</h1>
       <div className="current-question">
         <QuestionCenter
           nextQuestion={nextQuestion}

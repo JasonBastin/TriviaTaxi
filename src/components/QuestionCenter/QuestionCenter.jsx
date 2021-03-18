@@ -12,16 +12,14 @@ const QuestionCenter = ({ currentQuestion, nextQuestion, handleScore }) => {
         <div className="question">{question}</div>
       </div>
       <div className="options-container">
-        <Options options={options} answer={answer} />
+        <Options
+          options={options}
+          answer={answer}
+          question_value={question_value}
+          handleScore={handleScore}
+          nextQuestion={nextQuestion}
+        />
       </div>
-      <button
-        onClick={() => {
-          nextQuestion();
-          handleScore(question_value);
-        }}
-      >
-        Next Question
-      </button>
     </div>
   );
 };

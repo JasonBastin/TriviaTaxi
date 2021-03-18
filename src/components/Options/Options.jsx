@@ -1,8 +1,22 @@
 import React from "react";
 import "./index.css";
 
-function Options({ options, answer }) {
-  const handleOptionClick = (e) => {};
+function Options({
+  options,
+  answer,
+  question_value,
+  handleScore,
+  nextQuestion,
+}) {
+  const handleOptionClick = (e) => {
+    if (answer === e.target.innerText) {
+      handleScore(question_value);
+      setTimeout(nextQuestion, 5000);
+    } else {
+      setTimeout(nextQuestion, 5000);
+    }
+    console.log(answer);
+  };
 
   return (
     <div>
