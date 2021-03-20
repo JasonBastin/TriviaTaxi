@@ -6,10 +6,10 @@ import {
   fetchDoubleOrNothingQuestion,
 } from "../../api/fetchTrivia";
 import { decodeText } from "../../tools/decodeText";
-import Scoreboard from "../Scoreboard/Scoreboard";
 import QuestionCenter from "../QuestionCenter/QuestionCenter";
+import "./index.css";
 
-const NewGame = () => {
+const TriviaTaxi = () => {
   const [triviaList, setTriviaList] = useState({});
   const [score, setScore] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
@@ -75,17 +75,15 @@ const NewGame = () => {
   };
 
   return (
-    <div className="newGame">
-      <div className="current-question">
-        <QuestionCenter
-          score={score}
-          nextQuestion={nextQuestion}
-          currentQuestion={currentQuestion}
-          handleScore={handleScore}
-        />
-      </div>
+    <div className="trivia-taxi">
+      <QuestionCenter
+        score={score}
+        nextQuestion={nextQuestion}
+        currentQuestion={currentQuestion}
+        handleScore={handleScore}
+      />
     </div>
   );
 };
 
-export default NewGame;
+export default TriviaTaxi;

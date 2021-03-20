@@ -1,3 +1,9 @@
-.current-question {
-  background-color: blue;
+.trivia-taxi {
+  background-color: rgb(49, 49, 49);
+  width: 70%;
+  height: 100vh;
+  margin: auto;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
 }

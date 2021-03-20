@@ -1,15 +1,20 @@
+.scoreboard-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .question-value {
   background: linear-gradient(
     rgb(255, 237, 135),
     rgb(252, 223, 63) 30%,
     rgb(223, 189, 1) 80%
   );
-  transform: skew(-7deg, -7deg) rotate(7deg);
+  transform: skew(-7deg, -7deg) rotate(7deg) translateX(4px);
   width: 125px;
   height: 35px;
   display: flex;
   align-items: center;
-  margin-top: 5px;
 }
 
 .value {
@@ -20,10 +25,10 @@
   margin-left: 6px;
 }
 
-.scoreboard {
+.scoreboard-stats {
   background-color: black;
   height: 105px;
   width: 300px;
-  border: 3px solid rgba(223, 190, 1, 0.527);
+  border: 3px solid rgba(219, 188, 14, 0.514);
   border-radius: 3px;
 }
