@@ -1,3 +1,29 @@
+.question-value {
+  background: linear-gradient(
+    rgb(255, 237, 135),
+    rgb(252, 223, 63) 30%,
+    rgb(223, 189, 1) 80%
+  );
+  transform: skew(-7deg, -7deg) rotate(7deg);
+  width: 125px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.value {
+  color: rgb(44, 44, 44);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  transform: skew(7deg, 7deg) rotate(-7deg);
+  margin-left: 6px;
+}
+
 .scoreboard {
-  color: white;
+  background-color: black;
+  height: 105px;
+  width: 300px;
+  border: 3px solid rgba(223, 190, 1, 0.527);
+  border-radius: 3px;
 }

@@ -1,14 +1,20 @@
 import { useState, useEffect } from "react";
 import Options from "../Options/Options";
+import Scoreboard from "../Scoreboard/Scoreboard";
 import "./index.css";
 
-const QuestionCenter = ({ currentQuestion, nextQuestion, handleScore }) => {
+const QuestionCenter = ({
+  currentQuestion,
+  nextQuestion,
+  handleScore,
+  score,
+}) => {
   const { question, answer, options, question_value } = currentQuestion;
 
   return (
     <div className="question-container">
+      <Scoreboard score={score} question_value={question_value} />
       <div className="question-card">
-        <div className="value">{question_value}</div>
         <div className="question">{question}</div>
       </div>
       <div className="options-container">
