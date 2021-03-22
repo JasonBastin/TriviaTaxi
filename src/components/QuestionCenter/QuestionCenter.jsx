@@ -1,14 +1,16 @@
+import { useState } from "react";
 import Options from "../Options/Options";
 import Scoreboard from "../Scoreboard/Scoreboard";
 import "./index.css";
 
-const QuestionCenter = ({
-  currentQuestion,
-  nextQuestion,
-  handleScore,
-  score,
-}) => {
+const QuestionCenter = ({ currentQuestion, nextQuestion }) => {
+  const [score, setScore] = useState(0);
+
   const { question, answer, options, question_value } = currentQuestion;
+
+  const handleScore = (value) => {
+    setScore((prevScore) => prevScore + value);
+  };
 
   return (
     <div className="question-container">

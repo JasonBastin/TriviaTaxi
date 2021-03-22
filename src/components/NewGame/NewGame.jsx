@@ -11,7 +11,6 @@ import "./index.css";
 
 const TriviaTaxi = () => {
   const [triviaList, setTriviaList] = useState({});
-  const [score, setScore] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState({});
 
@@ -70,17 +69,11 @@ const TriviaTaxi = () => {
     setQuestionCount((prevQuestion) => prevQuestion + 1);
   };
 
-  const handleScore = (value) => {
-    setScore((prevScore) => prevScore + value);
-  };
-
   return (
     <div className="trivia-taxi">
       <QuestionCenter
-        score={score}
         nextQuestion={nextQuestion}
         currentQuestion={currentQuestion}
-        handleScore={handleScore}
       />
     </div>
   );
