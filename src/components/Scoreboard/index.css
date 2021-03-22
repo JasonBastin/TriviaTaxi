@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-.value {
+.worth {
   color: rgb(44, 44, 44);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
@@ -31,4 +31,56 @@
   width: 300px;
   border: 3px solid rgba(219, 188, 14, 0.514);
   border-radius: 3px;
+}
+
+.score-title {
+  color: rgb(218, 218, 218);
+  font-size: 24px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.display {
+  margin-top: -5px;
+  height: 79%;
+  display: flex;
+  align-items: center;
+}
+
+.score-display {
+  color: rgb(218, 218, 218);
+  font-size: 60px;
+  background-color: rgba(61, 61, 61, 0.7);
+  border-radius: 2px;
+  width: 60%;
+  height: 85%;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.score {
+  color: green;
+  margin-left: auto;
+}
+
+.strikes {
+  height: 85%;
+  width: 33%;
+  margin: auto;
+}
+
+.strikes-display {
+  background-color: rgba(61, 61, 61, 0.7);
+  border-radius: 2px;
+  height: 63%;
+}
+
+.strikes-title {
+  color: white;
+  font-size: 17px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

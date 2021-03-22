@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Options from "../Options/Options";
 import Scoreboard from "../Scoreboard/Scoreboard";
 import "./index.css";
