@@ -1,6 +1,7 @@
 .option {
   width: 49%;
   height: 80px;
+  vertical-align: top;
   cursor: pointer;
   border: 2px solid rgba(6, 51, 253, 0.5);
   border-radius: 5px;
