@@ -5,6 +5,7 @@ import "./index.css";
 
 const QuestionCenter = ({ currentQuestion, nextQuestion }) => {
   const [score, setScore] = useState(0);
+  const [strikes, setStrikes] = useState([]);
 
   const { question, answer, options, question_value } = currentQuestion;
 
@@ -12,9 +13,19 @@ const QuestionCenter = ({ currentQuestion, nextQuestion }) => {
     setScore((prevScore) => prevScore + value);
   };
 
+  const handleWrongGuess = () => {
+    setStrikes((prev) => [...prev, "X"]);
+  };
+
+  const handleCorrectGuess = () => {};
+
   return (
     <div className="question-container">
-      <Scoreboard score={score} question_value={question_value} />
+      <Scoreboard
+        score={score}
+        question_value={question_value}
+        strikes={strikes}
+      />
       <div className="question-card">
         <div className="question">{question}</div>
       </div>
@@ -24,6 +35,7 @@ const QuestionCenter = ({ currentQuestion, nextQuestion }) => {
           answer={answer}
           question_value={question_value}
           handleScore={handleScore}
+          handleWrongGuess={handleWrongGuess}
           nextQuestion={nextQuestion}
         />
       </div>

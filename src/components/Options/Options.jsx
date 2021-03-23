@@ -6,13 +6,17 @@ function Options({
   answer,
   question_value,
   handleScore,
+  handleWrongGuess,
   nextQuestion,
 }) {
   const handleOptionClick = (e) => {
+    console.log("Answer: ", answer, "Guess: ", e.target.innerText);
+
     if (answer === e.target.innerText) {
       handleScore(question_value);
       setTimeout(nextQuestion, 5000);
     } else {
+      handleWrongGuess();
       setTimeout(nextQuestion, 5000);
     }
     console.log(answer);

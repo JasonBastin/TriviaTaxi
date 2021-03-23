@@ -1,6 +1,8 @@
 import "./index.css";
 
-function Scoreboard({ score, question_value }) {
+function Scoreboard({ score, question_value, strikes }) {
+  // chosen option != correct_answer ? strikes.push("X")
+
   return (
     <div className="scoreboard-container">
       <div className="scoreboard">
@@ -14,7 +16,11 @@ function Scoreboard({ score, question_value }) {
               $<div className="score">{score}</div>
             </div>
             <div className="strikes">
-              <div className="strikes-display"></div>
+              <div className="strikes-display">
+                {strikes.map((strike) => (
+                  <div>{strike}</div>
+                ))}
+              </div>
               <div className="strikes-title">STRIKES</div>
             </div>
           </div>
