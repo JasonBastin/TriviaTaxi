@@ -1,24 +1,18 @@
-import { useState } from "react";
 import Options from "../Options/Options";
 import Scoreboard from "../Scoreboard/Scoreboard";
 import GameOver from "../GameOver/GameOver";
 import "./index.css";
 
-const QuestionCenter = ({ currentQuestion, nextQuestion }) => {
-  const [score, setScore] = useState(0);
-  const [strikes, setStrikes] = useState([]);
-
+const QuestionCenter = ({
+  currentQuestion,
+  nextQuestion,
+  optionStatus,
+  strikes,
+  score,
+  handleCorrectGuess,
+  handleWrongGuess,
+}) => {
   const { question, answer, options, question_value } = currentQuestion;
-
-  const handleScore = (value) => {
-    setScore((prevScore) => prevScore + value);
-  };
-
-  const handleWrongGuess = () => {
-    setStrikes((prev) => [...prev, "X"]);
-  };
-
-  const handleCorrectGuess = () => {};
 
   if (strikes.length < 3) {
     return (
@@ -36,9 +30,10 @@ const QuestionCenter = ({ currentQuestion, nextQuestion }) => {
             options={options}
             answer={answer}
             question_value={question_value}
-            handleScore={handleScore}
+            handleCorrectGuess={handleCorrectGuess}
             handleWrongGuess={handleWrongGuess}
             nextQuestion={nextQuestion}
+            optionStatus={optionStatus}
           />
         </div>
       </div>

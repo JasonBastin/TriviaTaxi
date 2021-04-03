@@ -5,22 +5,21 @@ function Options({
   options,
   answer,
   question_value,
-  handleScore,
+  handleCorrectGuess,
   handleWrongGuess,
   nextQuestion,
 }) {
   const handleOptionClick = (e) => {
-    console.log("Answer: ", answer, "Guess: ", e.target.innerText);
-
     if (answer === e.target.innerText) {
-      handleScore(question_value);
-      setTimeout(nextQuestion, 5000);
+      handleCorrectGuess(question_value);
+      setTimeout(nextQuestion, 4000);
     } else {
       handleWrongGuess();
-      setTimeout(nextQuestion, 5000);
+      setTimeout(nextQuestion, 4000);
     }
-    console.log(answer);
   };
+
+  console.log(options);
 
   return (
     <div>
@@ -28,7 +27,8 @@ function Options({
         options[0] &&
         options.map((option, index) => (
           <button
-            className="option"
+            className="unanswered"
+            id={`${index}-${Date.now()}`}
             key={`${index}-${Date.now()}`}
             onClick={handleOptionClick}
           >

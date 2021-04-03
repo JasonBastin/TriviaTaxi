@@ -17,8 +17,8 @@ function Scoreboard({ score, question_value, strikes }) {
             </div>
             <div className="strikes">
               <div className="strikes-display">
-                {strikes.map((strike) => (
-                  <div>{strike}</div>
+                {strikes.map((strike, index) => (
+                  <div key={`${index}-${Date.now()}`}>{strike}</div>
                 ))}
               </div>
               <div className="strikes-title">STRIKES</div>
