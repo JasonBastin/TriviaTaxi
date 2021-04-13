@@ -11,7 +11,7 @@ const Options = ({
   handleShowAnswer,
   showAnswer,
 }) => {
-  const [selectedOption, setSelectedOption] = useState({});
+  console.log(showAnswer);
 
   const handleOptionClick = (option) => (e) => {
     handleShowAnswer();
@@ -36,7 +36,7 @@ const Options = ({
                 className={`option ${showAnswer ? "correct" : ""}`}
                 id={`${index}-${Date.now()}`}
                 key={`${index}-${Date.now()}`}
-                onClick={handleOptionClick()}
+                onClick={!showAnswer ? handleOptionClick() : null}
               >
                 {option}
               </button>
@@ -47,7 +47,7 @@ const Options = ({
               className={`option ${showAnswer ? "wrong" : ""}`}
               id={`${index}-${Date.now()}`}
               key={`${index}-${Date.now()}`}
-              onClick={handleOptionClick()}
+              onClick={!showAnswer ? handleOptionClick() : null}
             >
               {option}
             </button>
