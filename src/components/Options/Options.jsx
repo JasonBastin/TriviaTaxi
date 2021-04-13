@@ -1,15 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import "./index.css";
 
-function Options({
+const Options = ({
   options,
   answer,
   question_value,
   handleCorrectGuess,
   handleWrongGuess,
   nextQuestion,
-}) {
-  const handleOptionClick = (e) => {
+  handleShowAnswer,
+  showAnswer,
+}) => {
+  const [selectedOption, setSelectedOption] = useState({});
+
+  const handleOptionClick = (option) => (e) => {
+    handleShowAnswer();
+
     if (answer === e.target.innerText) {
       handleCorrectGuess(question_value);
       setTimeout(nextQuestion, 4000);
@@ -19,24 +25,36 @@ function Options({
     }
   };
 
-  console.log(options);
-
   return (
     <div>
       {options &&
         options[0] &&
-        options.map((option, index) => (
-          <button
-            className="unanswered"
-            id={`${index}-${Date.now()}`}
-            key={`${index}-${Date.now()}`}
-            onClick={handleOptionClick}
-          >
-            {option}
-          </button>
-        ))}
+        options.map((option, index) => {
+          if (option === answer) {
+            return (
+              <button
+                className={`option ${showAnswer ? "correct" : ""}`}
+                id={`${index}-${Date.now()}`}
+                key={`${index}-${Date.now()}`}
+                onClick={handleOptionClick()}
+              >
+                {option}
+              </button>
+            );
+          }
+          return (
+            <button
+              className={`option ${showAnswer ? "wrong" : ""}`}
+              id={`${index}-${Date.now()}`}
+              key={`${index}-${Date.now()}`}
+              onClick={handleOptionClick()}
+            >
+              {option}
+            </button>
+          );
+        })}
     </div>
   );
-}
+};
 
 export default Options;

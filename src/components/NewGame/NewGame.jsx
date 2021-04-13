@@ -15,6 +15,7 @@ const TriviaTaxi = () => {
   const [currentQuestion, setCurrentQuestion] = useState({});
   const [score, setScore] = useState(0);
   const [strikes, setStrikes] = useState([]);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
     const getTrivia = async () => {
@@ -69,6 +70,7 @@ const TriviaTaxi = () => {
 
   const nextQuestion = () => {
     setQuestionCount((prevQuestion) => prevQuestion + 1);
+    setShowAnswer(false);
   };
 
   const handleWrongGuess = () => {
@@ -77,6 +79,10 @@ const TriviaTaxi = () => {
 
   const handleCorrectGuess = (value) => {
     setScore((prevScore) => prevScore + value);
+  };
+
+  const handleShowAnswer = () => {
+    setShowAnswer(true);
   };
 
   return (
@@ -88,6 +94,8 @@ const TriviaTaxi = () => {
         handleWrongGuess={handleWrongGuess}
         nextQuestion={nextQuestion}
         currentQuestion={currentQuestion}
+        handleShowAnswer={handleShowAnswer}
+        showAnswer={showAnswer}
       />
     </div>
   );

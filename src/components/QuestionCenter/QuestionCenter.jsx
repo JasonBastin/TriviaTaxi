@@ -11,6 +11,8 @@ const QuestionCenter = ({
   score,
   handleCorrectGuess,
   handleWrongGuess,
+  handleShowAnswer,
+  showAnswer,
 }) => {
   const { question, answer, options, question_value } = currentQuestion;
 
@@ -34,6 +36,8 @@ const QuestionCenter = ({
             handleWrongGuess={handleWrongGuess}
             nextQuestion={nextQuestion}
             optionStatus={optionStatus}
+            handleShowAnswer={handleShowAnswer}
+            showAnswer={showAnswer}
           />
         </div>
       </div>
