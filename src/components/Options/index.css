@@ -10,11 +10,11 @@
 
 .option:hover {
   background-color: rgba(6, 51, 253, 0.2);
-  color: white;
 }
 
 .correct {
-  background-color: rgba(0, 128, 0, 0.479);
+  background-color: rgba(53, 250, 53, 0.479);
+  color: white;
   width: 49%;
   height: 80px;
   vertical-align: top;
@@ -26,11 +26,10 @@
 
 .correct:hover {
   background-color: rgba(53, 250, 53, 0.479);
-  border: white;
 }
 
 .wrong {
-  background-color: rgba(255, 50, 50, 0.452);
+  background-color: rgba(255, 50, 50, 0.664);
   width: 49%;
   height: 80px;
   vertical-align: top;
@@ -42,5 +41,4 @@
 
 .wrong:hover {
   background-color: rgba(255, 50, 50, 0.664);
-  border: white;
 }
