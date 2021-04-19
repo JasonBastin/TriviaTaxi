@@ -1,12 +1,13 @@
 import axios from "axios";
 
 const easyURL =
-  "https://opentdb.com/api.php?amount=4&difficulty=easy&type=multiple";
+  "https://opentdb.com/api.php?amount=4&category=9&difficulty=easy&type=multiple";
 const mediumURL =
-  "https://opentdb.com/api.php?amount=4&difficulty=medium&type=multiple";
+  "https://opentdb.com/api.php?amount=4&category=9&difficulty=medium&type=multiple";
 const hardURL =
-  "https://opentdb.com/api.php?amount=2&difficulty=hard&type=multiple";
-const doubleOrNothingURL = "https://opentdb.com/api.php?amount=1&type=multiple";
+  "https://opentdb.com/api.php?amount=2&category=9&difficulty=medium&type=multiple";
+const doubleOrNothingURL =
+  "https://opentdb.com/api.php?amount=1category=9&difficulty=hard&type=multiple";
 
 const fetchQuestions = async (url) => {
   try {
