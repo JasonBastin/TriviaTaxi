@@ -21,7 +21,7 @@ const Home = () => {
         >
           <i>CUE B ROLL AND SOFT ROCK INTRO...</i>
         </span>
-        <Link to="/NewGame">
+        <Link to="/GameCenter">
           <button>GET IN</button>
         </Link>
       </div>

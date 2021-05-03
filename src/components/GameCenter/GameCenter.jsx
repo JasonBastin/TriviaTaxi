@@ -9,7 +9,7 @@ import { decodeText } from "../../tools/decodeText";
 import QuestionCenter from "../QuestionCenter/QuestionCenter";
 import "./index.css";
 
-const TriviaTaxi = () => {
+const GameCenter = () => {
   const [triviaList, setTriviaList] = useState({});
   const [questionCount, setQuestionCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState({});
@@ -101,4 +101,4 @@ const TriviaTaxi = () => {
   );
 };
 
-export default TriviaTaxi;
+export default GameCenter;
