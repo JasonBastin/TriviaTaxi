@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="header">
       <div className="title-header">
-        <Link to="/Home" className="link">
+        <Link to="/GameCenter" className="link">
           <div className="title-container">
             <span className="title-start">T</span>
             <span className="title-end">RIVIA</span>{" "}

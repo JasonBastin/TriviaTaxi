@@ -3,7 +3,7 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 import GameOver from "../GameOver/GameOver";
 import "./index.css";
 
-const QuestionCenter = ({
+const Question = ({
   currentQuestion,
   nextQuestion,
   optionStatus,
@@ -50,10 +50,10 @@ const QuestionCenter = ({
           question_value={question_value}
           strikes={strikes}
         />
-        <GameOver />
+        <GameOver score={score} />
       </div>
     );
   }
 };
 
-export default QuestionCenter;
+export default Question;

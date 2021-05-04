@@ -1,21 +1,28 @@
+import { useState } from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import GameCenter from "./components/GameCenter/GameCenter";
 import Header from "./components/Header/Header";
 
 function App() {
-  return (
-    <div>
-      <Header />
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-      <div className="main">
-        <Switch>
-          <Route exact path="/Home" component={Home}></Route>
-          <Route path="/GameCenter" component={GameCenter}></Route>
-        </Switch>
+  if (isLoggedIn) {
+    return (
+      <div>
+        <Header />
+
+        <GameCenter />
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <Header />
+        <h1>You must log in!</h1>
+      </div>
+    );
+  }
 }
 
 export default App;

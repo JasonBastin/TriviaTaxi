@@ -6,7 +6,7 @@ import {
   fetchDoubleOrNothingQuestion,
 } from "../../api/fetchTrivia";
 import { decodeText } from "../../tools/decodeText";
-import QuestionCenter from "../QuestionCenter/QuestionCenter";
+import Question from "../Question/Question";
 import "./index.css";
 
 const GameCenter = () => {
@@ -87,7 +87,7 @@ const GameCenter = () => {
 
   return (
     <div className="trivia-taxi">
-      <QuestionCenter
+      <Question
         strikes={strikes}
         score={score}
         handleCorrectGuess={handleCorrectGuess}
