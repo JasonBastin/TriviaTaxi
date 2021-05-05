@@ -4,7 +4,7 @@
   --accent: #242424;
 }
 
-.title-header {
+.title {
   height: 150px;
   background-color: var(--primary);
   display: flex;

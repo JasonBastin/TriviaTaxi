@@ -5,9 +5,12 @@ import "./index.css";
 function Header() {
   return (
     <div className="header">
-      <div className="title-header">
+      <div className="title">
         <Link to="/GameCenter" className="link">
-          <div className="title-container">
+          <div
+            onClick={() => window.location.reload()}
+            className="title-container"
+          >
             <span className="title-start">T</span>
             <span className="title-end">RIVIA</span>{" "}
             <span className="title-start">T</span>
