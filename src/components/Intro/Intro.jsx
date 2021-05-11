@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 
-const Intro = () => {
+const Intro = ({ startGame }) => {
+  const handleStartButton = () => {
+    startGame();
+  };
+
   return (
     <div>
       <h1>Home</h1>
@@ -22,7 +26,7 @@ const Intro = () => {
           <i>CUE B ROLL AND SOFT ROCK INTRO...</i>
         </span>
         <Link to="/GameCenter">
-          <button>GET IN</button>
+          <button onClick={handleStartButton}>Start!</button>
         </Link>
       </div>
     </div>

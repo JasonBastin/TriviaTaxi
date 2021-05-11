@@ -9,9 +9,9 @@ import { decodeText } from "../../tools/decodeText";
 import Question from "../Question/Question";
 import "./index.css";
 
-const GameCenter = () => {
+const GameCenter = ({ isLastQuestion }) => {
   const [triviaList, setTriviaList] = useState({});
-  const [questionCount, setQuestionCount] = useState(0);
+  const [questionCount, setQuestionCount] = useState(7);
   const [currentQuestion, setCurrentQuestion] = useState({});
   const [score, setScore] = useState(0);
   const [strikes, setStrikes] = useState([]);
@@ -69,6 +69,9 @@ const GameCenter = () => {
   }, [triviaList, questionCount]);
 
   const nextQuestion = () => {
+    if (questionCount > 8) {
+      isLastQuestion();
+    }
     setQuestionCount((prevQuestion) => prevQuestion + 1);
     setShowAnswer(false);
   };
