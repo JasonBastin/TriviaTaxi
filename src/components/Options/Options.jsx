@@ -11,8 +11,6 @@ const Options = ({
   handleShowAnswer,
   showAnswer,
 }) => {
-  console.log(showAnswer);
-
   const handleOptionClick = (option) => (e) => {
     handleShowAnswer();
 

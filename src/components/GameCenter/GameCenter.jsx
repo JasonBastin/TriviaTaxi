@@ -9,11 +9,10 @@ import { decodeText } from "../../tools/decodeText";
 import Question from "../Question/Question";
 import "./index.css";
 
-const GameCenter = ({ isLastQuestion }) => {
+const GameCenter = ({ handleScoreChange, isLastQuestion, score }) => {
   const [triviaList, setTriviaList] = useState({});
-  const [questionCount, setQuestionCount] = useState(7);
+  const [questionCount, setQuestionCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState({});
-  const [score, setScore] = useState(0);
   const [strikes, setStrikes] = useState([]);
   const [showAnswer, setShowAnswer] = useState(false);
 
@@ -81,12 +80,14 @@ const GameCenter = ({ isLastQuestion }) => {
   };
 
   const handleCorrectGuess = (value) => {
-    setScore((prevScore) => prevScore + value);
+    handleScoreChange(value);
   };
 
   const handleShowAnswer = () => {
     setShowAnswer(true);
   };
+
+  console.log(triviaList);
 
   return (
     <div className="trivia-taxi">

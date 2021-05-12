@@ -4,8 +4,9 @@ import GameCenter from "../GameCenter/GameCenter";
 import GameOver from "../GameOver/GameOver";
 import DoubleOrNothing from "../DoubleOrNothing/DoubleOrNothing";
 
-function StageOfGame() {
+function GameStage() {
   const [stateOfGame, setStateOfGame] = useState("intro");
+  const [score, setScore] = useState(0);
 
   const startGame = () => {
     setStateOfGame("start game");
@@ -15,18 +16,30 @@ function StageOfGame() {
     setStateOfGame("double or nothing");
   };
 
+  const handleScoreChange = (value) => {
+    setScore((prevScore) => prevScore + value);
+  };
+
   switch (stateOfGame) {
     case "intro":
       return <Intro startGame={startGame} />;
     case "start game":
-      return <GameCenter isLastQuestion={isLastQuestion} />;
+      return (
+        <GameCenter
+          handleScoreChange={handleScoreChange}
+          score={score}
+          isLastQuestion={isLastQuestion}
+        />
+      );
     case "double or nothing":
-      return <DoubleOrNothing />;
+      return (
+        <DoubleOrNothing handleScoreChange={handleScoreChange} score={score} />
+      );
     case "game over":
-      return <GameOver />;
+      return <GameOver score={score} />;
     default:
       return;
   }
 }
 
-export default StageOfGame;
+export default GameStage;
